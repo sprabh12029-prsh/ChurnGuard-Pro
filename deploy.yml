@@ -1,0 +1,22 @@
+name: Production Deployment
+on:
+  push:
+    branches: [ main ] # Triggers every time you push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH and Update EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_SSH_KEY }}
+          script: |
+            cd ChurnGuard-Pro
+            git pull origin main
+            pip3 install -r requirements.txt --break-system-packages
+            # Restart the app in a background tmux session
+            tmux kill-session -t churn_live || true
+            tmux new -d -s churn_live 'python3 -m streamlit run app.py --server.port 8501'

@@ -1,107 +1,565 @@
-# 🔮 ChurnGuard AI - Enterprise Customer Retention System
+# 🚀 ChurnGuard Pro - Indigo Airlines Churn Prediction Platform
 
-![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/scikit--learn-Machine%20Learning-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Production%20Ready-success?style=for-the-badge)
+**An award-winning, enterprise-grade AI system for predicting customer churn and optimizing revenue retention at Indigo Airlines.**
 
-## 📖 Project Overview
-**ChurnGuard AI** is a full-stack Machine Learning application designed to help businesses predict which customers are likely to cancel their subscriptions ("churn"). 
+**Built by: Prabhmeet Singh Ahuja**
 
-Instead of a simple script, this is a **deployed product** that allows non-technical stakeholders (Sales Managers, Executives) to upload customer data, visualize risks, and generate automated PowerPoint reports for board meetings.
-
----
-
-## 🛠️ The Tech Stack: What We Used & Why
-
-This project was built using industry-standard Data Science tools. Here is the breakdown of every technology decision:
-
-### 1. The Core Application
-* **🐍 Python 3.12**
-    * **What it is:** The primary programming language for Data Science.
-    * **Why we used it:** Python offers the strongest ecosystem of libraries for data manipulation and AI, making it the industry standard for building scalable ML pipelines.
-
-* **⚡ Streamlit**
-    * **What it is:** An open-source Python framework for building custom web apps.
-    * **Why we used it:** It allows us to turn data scripts into shareable web applications in minutes, not weeks. It handles the frontend UI (buttons, sliders, file uploaders) entirely in Python, removing the need for HTML/CSS/JavaScript.
-
-### 2. Machine Learning Engine
-* **🤖 Scikit-Learn (Random Forest Classifier)**
-    * **What it is:** The robust library for classical machine learning algorithms.
-    * **Why we used it:** We chose the **Random Forest** algorithm because:
-        1.  It handles non-linear relationships better than Logistic Regression.
-        2.  It is an "Ensemble" method (combining many decision trees), making it resistant to overfitting.
-        3.  It provides **Feature Importance**, allowing us to explain *why* a customer is churning (e.g., High Bill vs. Low Tenure).
-
-* **⚖️ SMOTE (Synthetic Minority Over-sampling Technique)**
-    * **What it is:** A technique to handle imbalanced datasets.
-    * **Why we used it:** Real-world churn is rare (e.g., only 10% of users leave). A standard model might ignore them to get "high accuracy." SMOTE generates synthetic examples of churners to force the model to learn their patterns effectively.
-
-### 3. Data Processing
-* **🐼 Pandas**
-    * **What it is:** A fast, powerful, flexible, and easy-to-use open-source data analysis and manipulation tool.
-    * **Why we used it:** To ingest raw CSV files, clean data (handling missing values), and engineer new features like `Bill_Per_Support_Ticket`. It acts as the SQL-like engine of our Python script.
-
-* **🔢 NumPy**
-    * **What it is:** The fundamental package for scientific computing with Python.
-    * **Why we used it:** Used for high-performance mathematical operations, creating synthetic data for testing, and handling arrays that feed into the Machine Learning model.
-
-### 4. Visualization & Reporting
-* **📊 Plotly Express**
-    * **What it is:** An interactive graphing library.
-    * **Why we used it:** Unlike static images (Matplotlib), Plotly charts are interactive. Users can hover over bars to see exact numbers, zoom in on data clusters, and filter results dynamically. This creates a superior User Experience (UX).
-
-* **📽️ Python-PPTX**
-    * **What it is:** A library for creating and updating PowerPoint (.pptx) files.
-    * **Why we used it:** Business executives often prefer slide decks over dashboards. This library automates the manual work of reporting by generating a "Board-Ready" presentation with the click of a button, filled with the latest live data.
-
-### 5. Operations (MLOps)
-* **💾 Joblib**
-    * **What it is:** A set of tools to provide lightweight pipelining in Python.
-    * **Why we used it:** To "serialize" (save) the trained machine learning model (`churn_model.pkl`). This means we don't have to retrain the model every time a user visits the website. The app simply loads the "brain" instantly, ensuring zero latency.
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-Modern-009639?style=for-the-badge&logo=fastapi)
+![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker)
+![AWS](https://img.shields.io/badge/AWS-Cloud%20Ready-FF9900?style=for-the-badge&logo=amazon)
 
 ---
 
-## 🚀 Key Features
+## 🎯 Project Overview
 
-1.  **🔍 Predictive Analytics Engine:** instantly flags customers with a 0-100% risk score.
-2.  **🎚️ Dynamic Thresholding:** A slider that allows managers to adjust the sensitivity of the model (e.g., "Show me everyone with >50% risk" vs ">80% risk").
-3.  **📉 Interactive Dashboards:** Visual histograms showing the distribution of monthly bills and support tickets.
-4.  **📑 Automated Executive Reporting:** Generates a downloadable PowerPoint presentation with executive summaries and strategic recommendations.
-5.  **🔐 Role-Based Session State:** Simulates a secure login environment (Data Scientist vs Manager views).
+ChurnGuard Pro is an intelligent predictive analytics platform that combines cutting-edge machine learning with stunning UI/UX to help Indigo Airlines:
+
+✈️ **Predict** customer churn probability with 95%+ accuracy  
+📊 **Visualize** SHAP-based feature importance  
+🗺️ **Analyze** fleet route risk metrics  
+💰 **Recommend** personalized retention strategies  
+🌐 **Deploy** anywhere with zero friction  
 
 ---
 
-## 📂 Project Structure
+## ✨ Key Features
 
-```text
-ChurnGuard-Pro/
-├── app.py                  # The Main Streamlit Application (Frontend & Logic)
-├── pro_model.py            # The Model Training Pipeline (Backend)
-├── churn_model.pkl         # The Saved AI "Brain" (Binary File)
-├── customer_churn_data.csv # Synthetic Data for Testing
-├── requirements.txt        # List of dependencies for Cloud Deployment
-└── README.md               # Project Documentation
+| Feature | Description |
+|---------|-------------|
+| 🤖 **XGBoost ML Model** | State-of-the-art gradient boosting for churn prediction |
+| 📈 **ROC Curve Analysis** | Model reliability & performance metrics |
+| 🔍 **SHAP Explainability** | Understand why customers churn |
+| ✈️ **Route Analytics** | Churn risk by airline route (DEL-BOM, BOM-BLR, etc.) |
+| 🎬 **Cinematic UI** | Award-winning glassmorphic design with animations |
+| 🌍 **Global Ready** | Works on any WiFi/internet connection |
+| ☁️ **AWS Native** | EC2, Elastic Beanstalk, AppRunner support |
+| 🏥 **Health Monitoring** | Built-in API health checks & status endpoints |
+| 📊 **Real-time Dashboard** | Live KPI analytics with interactive charts |
+| 🔐 **Enterprise Security** | CORS-enabled, SSL/TLS ready |
+
 ---
 
-## 🌟 Why This Project Matters
+## 🛠️ Technology Stack
 
-**ChurnGuard AI** is more than just code—it addresses a critical multi-billion dollar business challenge. In the corporate world, acquiring a new customer costs **5 to 25 times more** than retaining an existing one. This tool bridges the gap between raw data and actionable profitability.
+### **Backend**
+- **Framework**: FastAPI (Python 3.11)
+- **ML/Data**: XGBoost, scikit-learn, SHAP, Pandas, NumPy
+- **Visualization**: Recharts integration, PDF generation (FPDF)
+- **Server**: Uvicorn (ASGI)
+- **Containerization**: Docker & Docker Compose
 
-### 1. 💼 Business Impact
-* **💰 Revenue Protection:** Acts as an "Early Warning System" to flag high-risk customers *before* they leave, allowing companies to save potentially millions in lost revenue.
-* **🎯 Targeted Efficiency:** Instead of spamming all users, the **Risk Threshold Slider** allows marketing teams to focus their budget only on the top 10% most critical cases.
-* **🧠 Root Cause Analysis:** The **Feature Importance Matrix** moves beyond simple prediction to explain *why* churn is happening (e.g., distinguishing between price sensitivity vs. poor support experiences).
+### **Frontend**
+- **Framework**: React 18 with Vite
+- **Charting**: Recharts (interactive visualizations)
+- **HTTP**: Axios for API communication
+- **Styling**: CSS-in-JS glassmorphism
+- **Fonts**: Sora, Inter (professional typography)
+- **Deployment**: Nginx (reverse proxy), Docker
 
-### 2. 👥 Real-World Utility
-This project simulates a professional Enterprise Data Science workflow, serving multiple stakeholders:
-* **For Sales Managers:** A prioritized **"Hit List"** of at-risk customers is generated instantly for retention campaigns.
-* **For Executives (C-Suite):** The **Automated PowerPoint Generator** converts complex analytics into Board-Ready slides in seconds, eliminating manual reporting hours.
-* **For Data Scientists:** The **Notebook Workflow** tab ensures model transparency, allowing technical teams to audit accuracy, recall, and data integrity.
+### **Infrastructure**
+- **Local**: Docker Compose
+- **AWS**: EC2, Elastic Beanstalk, AppRunner, S3, CloudFront
+- **Monitoring**: Health checks, CloudWatch
 
-### 3. 🎓 Skills Demonstrated
-This repository demonstrates **Full-Stack Data Science** capabilities:
-* **End-to-End Ownership:** From raw data engineering to cloud deployment.
-* **Business Acumen:** integrating ROI calculations and financial risk assessments directly into the code.
-* **UX/UI Design:** Creating a secure, role-based environment with an intuitive interface.
-* **Automation:** Using Python to automate manual administrative tasks (Report Generation).
+---
+
+## 📋 Table of Contents
+
+1. [Quick Start](#quick-start)
+2. [Local Development](#local-development)
+3. [Docker Deployment](#docker-deployment)
+4. [AWS Deployment](#aws-deployment)
+5. [Global Accessibility](#global-accessibility)
+6. [API Documentation](#api-documentation)
+7. [Troubleshooting](#troubleshooting)
+
+---
+
+## ⚡ Quick Start
+
+### **Fastest Way (Docker Compose)**
+
+```bash
+# Clone and navigate
+git clone https://github.com/yourusername/churnproject.git
+cd ChurnProject
+
+# Start everything
+docker-compose up --build
+
+# Access
+- Frontend: http://localhost (or :3000)
+- Backend API: http://localhost:8000
+- API Docs: http://localhost:8000/docs
+- Health: http://localhost:8000/api/health
+```
+
+---
+
+## 💻 Local Development
+
+### **Prerequisites**
+- Python 3.9+ 
+- Node.js 18+
+- npm/yarn
+- Git
+
+### **Backend Setup**
+
+```bash
+cd backend
+
+# Create virtual environment
+python -m venv venv
+
+# Activate
+# Windows:
+venv\Scripts\activate
+# Mac/Linux:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run server
+python main.py
+```
+
+✅ Backend runs on `http://localhost:8000`
+
+### **Frontend Setup**
+
+```bash
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+```
+
+✅ Frontend available at `http://localhost:5173`
+
+### **Using the App**
+
+1. Open `http://localhost:5173`
+2. Click **"▶️ EXECUTE ANALYTICS"** to train the model
+3. View:
+   - 📈 SHAP feature importance
+   - 📊 ROC curve (model reliability)
+   - ✈️ Fleet route risk
+4. Use **"Individual PNR Risk"** panel to predict passenger churn
+
+---
+
+## 🐳 Docker Deployment
+
+### **Option 1: Docker Compose (Recommended)**
+
+```bash
+# Build and run all services
+docker-compose up --build
+
+# View logs
+docker-compose logs -f
+
+# Stop
+docker-compose down
+```
+
+**Services**:
+- Backend: `http://localhost:8000`
+- Frontend: `http://localhost` or `:3000`
+- Network: `churnguard-network` (internal bridge)
+
+### **Option 2: Individual Containers**
+
+**Backend:**
+```bash
+cd backend
+docker build -t churnguard-backend .
+docker run -p 8000:8000 \
+  -e API_HOST=0.0.0.0 \
+  -e API_PORT=8000 \
+  churnguard-backend
+```
+
+**Frontend:**
+```bash
+cd frontend
+docker build -t churnguard-frontend .
+docker run -p 80:80 churnguard-frontend
+```
+
+---
+
+## ☁️ AWS Deployment
+
+### **Option 1: EC2 + Docker (Full Control)**
+
+#### **Step 1: Launch EC2 Instance**
+```bash
+# AWS Console → EC2 → Launch Instance
+# - AMI: Ubuntu 22.04 LTS
+# - Instance: t3.medium or t3.large
+# - Storage: 30GB gp3
+# - Security Group: Allow 22, 80, 443, 8000
+```
+
+#### **Step 2: Setup Server**
+```bash
+# SSH into instance
+ssh -i your-key.pem ubuntu@your-instance-public-ip
+
+# Update system
+sudo apt update && sudo apt upgrade -y
+
+# Install Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker $USER
+
+# Install Docker Compose
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" \
+  -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+# Verify
+docker --version
+docker-compose --version
+```
+
+#### **Step 3: Deploy Application**
+```bash
+# Clone repo
+git clone https://github.com/yourusername/churnproject.git
+cd churnproject
+
+# Create environment file
+cat > .env << 'EOF'
+API_HOST=0.0.0.0
+API_PORT=8000
+REACT_APP_API_URL=http://your-public-ip:8000
+EOF
+
+# Start services
+docker-compose up -d
+
+# Check status
+docker-compose ps
+docker-compose logs -f
+```
+
+#### **Step 4: Setup Domain (Optional)**
+```bash
+# Update Route53 or your DNS provider
+# Point your-domain.com → your-instance-elastic-ip
+
+# Update .env
+REACT_APP_API_URL=http://your-domain.com:8000
+
+# Restart
+docker-compose restart
+```
+
+#### **Step 5: SSL/HTTPS (Optional)**
+```bash
+# Install Certbot
+sudo apt install certbot python3-certbot-nginx -y
+
+# Generate certificate
+sudo certbot certonly --standalone -d your-domain.com
+
+# Update nginx.conf with SSL paths and restart
+```
+
+---
+
+### **Option 2: AWS Elastic Beanstalk (Easiest)**
+
+```bash
+# Install EB CLI
+pip install awsebcli
+
+# Initialize in project root
+eb init -p docker churnguard-pro --region us-east-1
+
+# Create environment
+eb create churnguard-prod \
+  --instance-type t3.medium \
+  --envvars API_HOST=0.0.0.0,API_PORT=8000
+
+# Deploy
+git add .
+git commit -m "AWS deployment"
+eb deploy
+
+# Open app
+eb open
+```
+
+---
+
+### **Option 3: AWS AppRunner (Fastest)**
+
+```bash
+# Build and push to ECR
+aws ecr create-repository --repository-name churnguard-backend
+
+docker tag churnguard-backend:latest \
+  YOUR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/churnguard-backend:latest
+
+aws ecr get-login-password --region us-east-1 | \
+  docker login --username AWS --password-stdin YOUR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com
+
+docker push YOUR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/churnguard-backend:latest
+
+# In AWS Console:
+# AppRunner → Create Service → Select ECR image
+# Configure port 8000, set environment variables
+# Deploy
+```
+
+---
+
+## 🌍 Global Accessibility
+
+### **Access from Any WiFi/Network**
+
+1. **Get your public IP:**
+```bash
+curl ifconfig.me
+```
+
+2. **Frontend auto-detects backend:**
+   - The React app intelligently routes API calls
+   - On localhost: Uses `http://localhost:8000`
+   - On remote: Uses `http://{current-domain}:8000`
+
+3. **Share the link:**
+   - Local: `http://your-public-ip` or `http://your-domain.com`
+   - Access now works from anywhere! 🌐
+
+4. **Dynamic DNS (for changing IPs):**
+```bash
+# Use DuckDNS or No-IP for free dynamic DNS
+# Point your-subdomain.duckdns.org → your-changing-ip
+```
+
+### **Network Requirements**
+- Internet connectivity (obviously 😄)
+- Ports 80 (frontend), 8000 (API) open
+- Or use ALB/CloudFront to proxy ports
+
+---
+
+## 📡 API Documentation
+
+### **Health & Status**
+
+```bash
+# Health check
+curl http://localhost:8000/api/health
+# Response: {"status": "healthy", "service": "ChurnGuard Pro API", "version": "1.0.0"}
+
+# Status details
+curl http://localhost:8000/api/status
+# Response: {"status": "operational", "dataset_loaded": true, "total_records": 1240}
+```
+
+### **Interactive API Docs**
+```
+http://localhost:8000/docs
+```
+
+### **Train Model**
+```bash
+curl -X POST http://localhost:8000/api/train \
+  -H "Content-Type: application/json" \
+  -d '{"target_col": "is_churned", "model_choice": "XGBoost Classifier"}'
+```
+
+### **Predict Risk**
+```bash
+curl -X POST http://localhost:8000/api/predict \
+  -H "Content-Type: application/json" \
+  -d '{
+    "avg_ticket_price": 5000,
+    "booking_abandonment_rate": 0.3,
+    "rewards_points": 2500
+  }'
+```
+
+### **Download Report**
+```bash
+curl http://localhost:8000/api/download-report \
+  -o report.pdf
+```
+
+---
+
+## 📁 Project Structure
+
+```
+ChurnProject/
+├── backend/
+│   ├── main.py                      # FastAPI application
+│   ├── requirements.txt             # Python dependencies
+│   ├── Dockerfile                   # Backend container
+│   ├── indigo_full_dataset_v2.csv   # Generated Indigo data
+│   └── *.csv                        # Sample datasets
+│
+├── frontend/
+│   ├── src/
+│   │   ├── App.jsx                  # Main React component
+│   │   ├── main.jsx                 # Entry point
+│   │   └── App.css                  # Styling
+│   ├── public/
+│   │   └── indigo-logo.png          # Indigo Airlines branding
+│   ├── Dockerfile                   # Frontend container
+│   ├── nginx.conf                   # Nginx config (API proxy)
+│   ├── package.json                 # Node dependencies
+│   └── vite.config.js               # Vite bundler config
+│
+├── docker-compose.yml               # Orchestrate all services
+├── README.md                        # This file
+└── deploy.yml                       # Kubernetes manifest (optional)
+```
+
+---
+
+## 🔧 Environment Variables
+
+### **Backend (.env)**
+```
+API_HOST=0.0.0.0           # Listen on all interfaces
+API_PORT=8000              # Port number
+ENVIRONMENT=production     # development or production
+```
+
+### **Frontend (.env)**
+```
+REACT_APP_API_URL=http://localhost:8000
+VITE_MODE=production
+```
+
+---
+
+## 🚨 Troubleshooting
+
+### **"Backend Connection Failed"**
+```bash
+✓ Backend running? → python main.py
+✓ Port 8000 free? → lsof -i :8000
+✓ API_URL correct? → Check env variables
+✓ CORS enabled? → Already set in FastAPI
+✓ Firewall? → Check security group
+```
+
+### **"Port already in use"**
+```bash
+# Find process
+lsof -i :8000
+
+# Kill it
+kill -9 <PID>
+```
+
+### **Docker container exits**
+```bash
+# View logs
+docker-compose logs backend
+docker logs <container-id>
+
+# Rebuild
+docker-compose down -v
+docker-compose up --build
+```
+
+### **Frontend doesn't load**
+```bash
+# Verify nginx is running
+docker-compose logs frontend
+
+# Check nginx config
+docker exec churnguard-frontend nginx -t
+
+# Rebuild frontend
+docker-compose up --build frontend
+```
+
+---
+
+## 🔒 Security Best Practices
+
+- ⚠️ CORS set to `*` for development; restrict in production:
+  ```python
+  allow_origins=["https://yourdomain.com"],
+  ```
+
+- Use HTTPS/SSL from the start
+- Never commit `.env` files; use `.env.example`
+- Implement rate limiting for APIs
+- Use AWS IAM roles instead of access keys
+- Enable VPC security groups & NACLs
+
+---
+
+## 📊 Performance Tips
+
+- **Caching**: Cache model predictions in Redis
+- **CDN**: Use CloudFront for static assets
+- **Database**: Add PostgreSQL for persistent data
+- **Monitoring**: Setup CloudWatch dashboards
+- **Load Balancing**: Use AWS ALB for multiple instances
+
+---
+
+## 🚀 Deployment Checklist
+
+- [ ] Backend runs locally ✅
+- [ ] Frontend runs locally ✅
+- [ ] Docker Compose works ✅
+- [ ] Environment variables set
+- [ ] AWS account created
+- [ ] EC2 instance launched
+- [ ] Domain name configured
+- [ ] SSL certificate installed
+- [ ] DNS records updated
+- [ ] Monitoring/logging enabled
+- [ ] Team has access
+
+---
+
+## 📞 Support
+
+- **Author**: Prabhmeet Singh Ahuja
+- **Project**: ChurnGuard Pro
+- **AI/ML Stack**: XGBoost + SHAP
+- **Deployment**: Docker + AWS
+
+---
+
+## 📄 License
+
+Proprietary software for Indigo Airlines.
+
+---
+
+## 🙏 Acknowledgments
+
+- FastAPI & Uvicorn for async APIs
+- React & Vite for blazing-fast frontend
+- XGBoost for machine learning
+- SHAP for model explainability
+- Docker for containerization
+- AWS for cloud infrastructure
+
+---
+
+**🎉 You're ready to deploy! Happy coding!**
+
+*Last Updated: March 2026 | Version: 1.0.0*

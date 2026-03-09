@@ -9,14 +9,8 @@ export default function App() {
   const [predictData, setPredictData] = useState({ avg_ticket_price: 3500, booking_abandonment_rate: 0.2, rewards_points: 1000 });
   const [singleRisk, setSingleRisk] = useState(null);
 
-  const getApiUrl = () => {
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      return 'http://localhost:8000';
-    }
-    return 'https://churnguard-api-kbvg.onrender.com';
-  };
-
-  const API_BASE_URL = getApiUrl();
+  // HARDWIRED PRODUCTION BACKEND URL
+  const API_BASE_URL = "https://churnguard-api-kbvg.onrender.com";
 
   useEffect(() => {
     const timer1 = setTimeout(() => setPhase(2), 3000);
@@ -30,7 +24,7 @@ export default function App() {
       const res = await axios.post(`${API_BASE_URL}/api/train`, { target_col: 'is_churned', model_choice: 'XGBoost Classifier' });
       setResult(res.data);
     } catch(err) { 
-      alert("Backend Error: " + API_BASE_URL);
+      alert("The Engine is warming up! Render's free tier takes ~60s to start. Please wait a moment and click again.");
     } finally { setLoading(false); }
   };
 

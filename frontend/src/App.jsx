@@ -13,7 +13,7 @@ export default function App() {
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
       return 'http://localhost:8000';
     }
-    return `${window.location.protocol}//${window.location.host}:8000`;
+    return 'https://churnguard-api-kbvg.onrender.com';
   };
 
   const API_BASE_URL = getApiUrl();
